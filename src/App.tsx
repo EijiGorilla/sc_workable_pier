@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable prettier/prettier */
+import '@esri/calcite-components/dist/components/calcite-shell';
+import '@esri/calcite-components/dist/calcite/calcite.css';
+import { CalciteShell } from '@esri/calcite-components-react';
+import MapPanel from './components/MapPanel';
+import { ContractPackageDataProvider } from './components/ContractPackageContext';
+import { ComponentListDataProvider } from './components/ComponentContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CalciteShell>
+        {/* <ActionPanel /> */}
+        <ContractPackageDataProvider>
+          <ComponentListDataProvider>
+            <MapPanel />
+          </ComponentListDataProvider>
+        </ContractPackageDataProvider>
+      </CalciteShell>
+    </>
   );
 }
 
