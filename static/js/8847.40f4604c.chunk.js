@@ -1,0 +1,2 @@
+/*! For license information please see 8847.40f4604c.chunk.js.LICENSE.txt */
+"use strict";(self.webpackChunksc_workable_pier=self.webpackChunksc_workable_pier||[]).push([[8847],{28847:(e,s,c)=>{c.r(s),c.d(s,{CalciteChip:()=>a,defineCustomElement:()=>i});var r=c(5569);const a=r.C,i=r.d}}]);
