@@ -29,7 +29,7 @@ import ContractPackageDisplay, {
   ContractPackageDataProvider,
   useContractPackageContext,
 } from './ContractPackageContext';
-import { cutoff_days, updatedDateCategoryNames } from '../UniqueValues';
+import { contractPackage, cutoff_days, updatedDateCategoryNames } from '../UniqueValues';
 import * as reactiveUtils from '@arcgis/core/core/reactiveUtils';
 import {
   lotLayer,
@@ -206,6 +206,11 @@ function MapPanel() {
 
   useEffect(() => {
     if (cpValueSelected || componentSelected) {
+      // For the second CP for stripMap Index layer to
+      // show pile caps with overlapping CPs
+      const selectedIdx = contractPackage.indexOf(cpValueSelected);
+      const cp2nd = contractPackage[selectedIdx + 1];
+      console.log(cp2nd);
       filterPileCapByCP(cpValueSelected);
       // zoomToLayer(pileCapLayer);
 

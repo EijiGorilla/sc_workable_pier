@@ -142,7 +142,7 @@ export const stripMapLayer = new FeatureLayer({
     },
   },
   layerId: 38,
-  outFields: ['PageNumber', 'Angle'],
+  outFields: ['PageNumber', 'Angle', 'GroupId'],
   title: 'Strip Map',
   popupEnabled: false,
   renderer: stripMapRenderer,
@@ -175,7 +175,7 @@ export const pier_number_label_workable_all = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'AllWorkable = 1',
+  where: 'AllWorkable = 0',
 });
 
 export const pier_number_label_nonworkable_all = new LabelClass({
@@ -193,7 +193,7 @@ export const pier_number_label_nonworkable_all = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'AllWorkable = 0',
+  where: 'AllWorkable = 1',
 });
 
 export const pier_number_label_completed_all = new LabelClass({
@@ -229,7 +229,7 @@ export const pier_number_label_workable_land = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'LandWorkable = 1',
+  where: 'LandWorkable = 0',
 });
 
 export const pier_number_label_nonworkable_land = new LabelClass({
@@ -247,7 +247,7 @@ export const pier_number_label_nonworkable_land = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'LandWorkable = 0',
+  where: 'LandWorkable = 1',
 });
 
 export const pier_number_label_completed_land = new LabelClass({
@@ -283,7 +283,7 @@ export const pier_number_label_workable_struc = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'StrucWorkable = 1',
+  where: 'StrucWorkable = 0',
 });
 
 export const pier_number_label_nonworkable_struc = new LabelClass({
@@ -301,7 +301,7 @@ export const pier_number_label_nonworkable_struc = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'StrucWorkable = 0',
+  where: 'StrucWorkable = 1',
 });
 
 export const pier_number_label_completed_struc = new LabelClass({
@@ -337,7 +337,7 @@ export const pier_number_label_workable_nlo = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'NLOWorkable = 1',
+  where: 'NLOWorkable = 0',
 });
 
 export const pier_number_label_nonworkable_nlo = new LabelClass({
@@ -355,7 +355,7 @@ export const pier_number_label_nonworkable_nlo = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'NLOWorkable = 0',
+  where: 'NLOWorkable = 1',
 });
 
 export const pier_number_label_completed_nlo = new LabelClass({
@@ -391,7 +391,7 @@ export const pier_number_label_workable_utility = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'UtilWorkable = 1',
+  where: 'UtilWorkable = 0',
 });
 
 export const pier_number_label_nonworkable_utility = new LabelClass({
@@ -409,7 +409,7 @@ export const pier_number_label_nonworkable_utility = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'UtilWorkable = 0',
+  where: 'UtilWorkable = 1',
 });
 
 export const pier_number_label_completed_utility = new LabelClass({
@@ -445,7 +445,7 @@ export const pier_number_label_workable_others = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'OthersWorkable = 1',
+  where: 'OthersWorkable = 0',
 });
 
 export const pier_number_label_nonworkable_others = new LabelClass({
@@ -463,7 +463,7 @@ export const pier_number_label_nonworkable_others = new LabelClass({
   labelExpressionInfo: {
     expression: '$feature.PierNumber',
   },
-  where: 'OthersWorkable = 0',
+  where: 'OthersWorkable = 1',
 });
 
 export const pier_number_label_completed_others = new LabelClass({
@@ -1113,7 +1113,7 @@ export const stripMapLayer_overview = new FeatureLayer({
     },
   },
   layerId: 38,
-  outFields: ['PageNumber'],
+  outFields: ['PageNumber', 'GroupId'],
   title: 'Strip Map',
   popupEnabled: false,
   visible: false,

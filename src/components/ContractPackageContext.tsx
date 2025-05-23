@@ -11,10 +11,11 @@ import {
   CalciteSegmentedControlItem,
   CalciteLabel,
 } from '@esri/calcite-components-react';
+import { contractPackage } from '../UniqueValues';
 
 function ContractPackageData() {
   const [cpValueSelected, setCpValueSelected] = useState<any>('S-01');
-  const contractPackage = ['S-01', 'S-02', 'S-03a', 'S-03b', 'S-03c', 'S-04', 'S-05', 'S-06'];
+  // const contractPackage = ['S-01', 'S-02', 'S-03a', 'S-03b', 'S-03c', 'S-04', 'S-05', 'S-06'];
 
   // handle change event of the Municipality dropdown
   const handleContractPackageChange = (obj: any) => {

@@ -6,6 +6,7 @@ import {
   nloLayer,
   nloLayer_overview,
   pileCapLayer,
+  pileCapLayer_overview,
   stripMapLayer,
   structureLayer,
   structureLayer_overview,
@@ -96,13 +97,13 @@ export async function calculateWorkablePiers(contractp: any, component: any) {
   });
 
   var count_nonworkable = new StatisticDefinition({
-    onStatisticField: 'CASE WHEN ' + workable_component + ' = 0 THEN 1 ELSE 0 END',
+    onStatisticField: 'CASE WHEN ' + workable_component + ' = 1 THEN 1 ELSE 0 END',
     outStatisticFieldName: 'count_nonworkable',
     statisticType: 'sum',
   });
 
   var count_workable = new StatisticDefinition({
-    onStatisticField: 'CASE WHEN ' + workable_component + ' = 1 THEN 1 ELSE 0 END',
+    onStatisticField: 'CASE WHEN ' + workable_component + ' = 0 THEN 1 ELSE 0 END',
     outStatisticFieldName: 'count_workable',
     statisticType: 'sum',
   });
@@ -155,13 +156,16 @@ export async function calculateWorkablePiers(contractp: any, component: any) {
 // Filter Pile CAP by CP
 export function filterPileCapByCP(cp: any) {
   const query_cp = "CP = '" + cp + "'";
+  const query_cp2 = "GroupId = '" + cp + "'";
   pileCapLayer.definitionExpression = query_cp;
+  pileCapLayer_overview.definitionExpression = query_cp;
 
   lotLayer.definitionExpression = query_cp;
   structureLayer.definitionExpression = query_cp;
   nloLayer.definitionExpression = query_cp;
   utilityPointLayer.definitionExpression = query_cp;
-  stripMapLayer.definitionExpression = query_cp;
+  // eslint-disable-next-line no-useless-concat
+  stripMapLayer.definitionExpression = query_cp + ' OR ' + query_cp2;
 
   // Overview
   lotLayer_overview.definitionExpression = query_cp;
