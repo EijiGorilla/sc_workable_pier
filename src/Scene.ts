@@ -27,6 +27,7 @@ import {
   structureLayer_overview,
   utilityPointLayer,
   utilityPointLayer_overview,
+  tunnelLayer,
 } from './layers';
 import Basemap from '@arcgis/core/Basemap';
 import VectorTileLayer from '@arcgis/core/layers/VectorTileLayer';
@@ -99,6 +100,7 @@ map.add(utilityPointLayer);
 map.add(scStationLayer);
 map.add(cp_break_lines);
 map.add(stripMapLayer);
+map.add(tunnelLayer);
 
 overViewMap.add(prowLayer_overview);
 overViewMap.add(scCenterlineOverView);

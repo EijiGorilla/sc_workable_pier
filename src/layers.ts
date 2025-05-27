@@ -118,6 +118,47 @@ export const prowLayer = new FeatureLayer({
 });
 prowLayer.listMode = 'hide';
 
+// SC Tunnel
+const tunnel_label = new LabelClass({
+  symbol: new TextSymbol({
+    color: '#808080',
+    haloColor: pier_number_halo_color,
+    haloSize: pier_number_halo_size,
+    font: {
+      size: 10,
+      weight: 'bold',
+    },
+  }),
+
+  // labelExpressionInfo: {
+  //   expression: 'TBM Tunnel',
+  // },
+  labelExpression: 'TBM Tunnel',
+  repeatLabel: false,
+});
+
+const tunnel_render = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: '#808080',
+    width: '2px',
+    style: 'short-dash',
+  }),
+});
+
+export const tunnelLayer = new FeatureLayer({
+  portalItem: {
+    id: '63605177aec648e5b3ad232d2b181874',
+    portal: {
+      url: 'https://gis.railway-sector.com/portal',
+    },
+  },
+  // url: 'https://gis.railway-sector.com/server/rest/services/SC_Alignment/FeatureServer/5',
+  title: 'Tunnel Alignment',
+  popupEnabled: false,
+  renderer: tunnel_render,
+  labelingInfo: [tunnel_label],
+});
+
 /* Strip Map Index  */
 // const stripMapRenderer = new UniqueValueRenderer({
 //   field: 'NonWorkable',
